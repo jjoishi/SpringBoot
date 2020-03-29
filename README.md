@@ -21,3 +21,5 @@ The main motive behind downloading the zipped packages was to avoid setting too 
 
 Not only have you associated JDK 14 with Intellij, you have also created a new project to work on. For any subsequent Java projects, the path to JDK would be available handy.
 In the project view, you can add Java class to your project, providing an appropriate package and class name.
+
+More information can be found here - https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html
