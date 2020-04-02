@@ -1,5 +1,9 @@
 This directory has all trails and experiments with Spring Boot framework in Java.
 
+# Table of contents
+* [Installation](link)
+* [Maven](link)
+
 # Installation
 
 ## Get Java SDK
