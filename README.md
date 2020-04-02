@@ -1,8 +1,9 @@
 This directory has all trails and experiments with Spring Boot framework in Java.
 
 # Table of contents
-* [Installation](link)
-* [Maven](link)
+* [Installation](https://github.com/jjoishi/SpringBoot#installation)
+* Concepts
+** [Maven](link)
 
 # Installation
 
