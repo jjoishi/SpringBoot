@@ -58,9 +58,11 @@ Most often, they refer to the family of projects or the Spring ecosystem.
    No need to deploy the application to web server. You can just run it using a single command.
 
    A typical Java web application has to go through the follwing steps -
+
    `Package Application` -> `Choose Webserver` -> `Configure Webserver` -> `Deploy Application & Start Webserver`
 
    With Spring Boot application, the pipeline is - 
+   
    `Package Application` -> `Run`
 
    Spring Boot takes care of the rest by starting a web server under your application, configure the defaults, and run your application.
@@ -99,8 +101,7 @@ The Spring Framework can be divided into 6 key areas -
 
 * **Aspect Oriented Programming (AOP)** :
    AOP is a way of writing more modular code by separating cross-module concerns. Without AOP, applications would most likely have scattered and duplicated code across the application. For example, Security of an application, may be checking that the current user is valid admin, can happen across many different modules in the application. 
-
-      ```
+    ```
       void someSensitiveOperation() {
           if(validAdmin){
               ... do something.
@@ -109,22 +110,21 @@ The Spring Framework can be divided into 6 key areas -
               ... report the behavior
           }
       }
-      ```
+    ```
 
    Instead of spreading these checks across modules of an application, Spring AOP allows us to define the security measures at a single location, and have modules depend on it. Authorization for example, can be defined using `@PreAuthorize` tag with appropriate arguments.
-
-      ```
+    ```
       @PreAuthorize("hasRole('admin')")
       void someSensitiveOperation() {
           // do something.
       }
-      ```
+    ```
+
 * **Data Access** :
-   Spring Data Access makes it easier for applications to interact with data sources. It removes all boiler plate code needed to retrieve and process results from data source like 'PreparedStatement', or iterating over 'ResultSet', or having code in try-catch-finally blocks. Using Spring Data Access, this is as simple as belows - 
-      
-      ```
+   Spring Data Access makes it easier for applications to interact with data sources. It removes all boiler plate code needed to retrieve and process results from data source like 'PreparedStatement', or iterating over 'ResultSet', or having code in try-catch-finally blocks. Using Spring Data Access, this is as simple as belows -     
+    ```
       int numRecords = new JdbcTemplate(dataSource).queryForInt("Select count(*) from Foo");
-      ```
+    ```
     
     Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit to false, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional` to denote that the function only acts on the database transactionally - either all or nothing.  
     ```
