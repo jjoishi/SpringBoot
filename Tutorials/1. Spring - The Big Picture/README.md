@@ -20,13 +20,13 @@ Spring could mean ...
 Most often, they refer to the family of projects or the Spring ecosystem.
 
 ## Spring Family
-   The Spring Family began when **Spring Framework** was introduced. Spring was introduced in response to the complexity of developing web application in Java (J2EE). Spring was introduced with an intention to make web development, data access, security, etc. easier for developers to implement. It also helped in reducing the boiler plate code (code that is not part of the main application, but is always neded to make things work).
+   The Spring Family began when **Spring Framework** was introduced. Spring was introduced in response to the complexity of developing web application in Java (J2EE). Spring was introduced with an intention to make web development, data access, security, etc. easier for developers to implement. It also helped in reducing the boiler plate code (code that is not part of the main application, but is always needed to make things work).
 
-   Spring Framework is the foundation of many other spring projects like **Spring Data**, **Spring Security**, **Spring Kafka**, etc. which served very specific purpose But building a Spring application involved a lot of choices, configuration of & between various spring projects, and the cumbersome deployment model. 
+   Spring Framework is the foundation of many other spring projects like **Spring Data**, **Spring Security**, **Spring Kafka**, etc. which served very specific purpose. But building a Spring application involved a lot of choices, configuration of & between various spring projects, and the cumbersome deployment model. 
 
-   **Spring Boot** was a game changer because it removed all these work by ensuring default settings/ libraries for the projects involving various spring elements, an opiniated view of developing application. Spring Boot also added smart features for auto detecting libraries/configurations, and deployment. Project deployment in Spring boot became as simple as running a simple command.
+   **Spring Boot** is a game changer because it removed all these work by ensuring default settings/ libraries for the projects involving various spring elements, an opinionated view of developing application. Spring Boot also added smart features for auto detecting libraries/configurations, and deployment. Project deployment in Spring boot became as simple as running a simple command.
 
-   **Spring Cloud** sat on top of Spring Boot, and made the development of distributed architectures like cloud based applications, microservices architectures, etc. easy. Distributes systems often have common patterns like service discovery, distributed configuration, etc. Spring Cloud made it easy for developers to develop applications that uses these patterns.
+   **Spring Cloud** sits on top of Spring Boot, and makes the development of distributed architectures like cloud based applications, microservices architectures, etc. easy. Distributes systems often have common patterns like service discovery, distributed configuration, etc. Spring Cloud made it easy for developers to develop applications that uses these patterns.
 
 ## Why Spring?
 
@@ -101,10 +101,10 @@ The Spring Framework can be divided into 6 key areas -
       ```
       void someSensitiveOperation() {
           if(validAdmin){
-              // do something.
+              ... do something.
           } else {
-              // log the error
-              // report the behavior
+              ... log the error
+              ... report the behavior
           }
       }
       ```
@@ -140,7 +140,6 @@ The Spring Framework can be divided into 6 key areas -
 * **Integration** :
    Integration is about making different systems and applications work together. This 
       * How do applications talk to each other ? RMI   , Messaging Systems or Web Services. Let us define a rest service below
-
       
       ```
       @RestController                                              // Denotes we are using REST
@@ -152,9 +151,7 @@ The Spring Framework can be divided into 6 key areas -
       }
       ```
 
-      
-      Spring Framework provides suport from programmatically invoking our rest service using `restTemplates`. restTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
-
+     Spring Framework provides suport from programmatically invoking our rest service using `restTemplates`. restTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
      
       ```
       restTemplate.getForObject("http://jeevan.com/account/567", Account.class);
