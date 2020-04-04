@@ -4,6 +4,7 @@ This lesson gives a high level introduction to Spring Framework, some of the Spr
 * [Spring Overview](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#what-is-spring)
 * [Getting to know Spring with Spring Boot](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#getting-to-know-spring-with-spring-boot)
 * [The Spring Framework](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#the-spring-framework)
+* [Is Spring a Good Fit](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#is-spring-a-good-fit)
 
 # What is Spring?
 
@@ -140,6 +141,7 @@ The Spring Framework can be divided into 6 key areas -
    Integration is about making different systems and applications work together. This 
       * How do applications talk to each other ? RMI   , Messaging Systems or Web Services. Let us define a rest service below
 
+      
       ```
       @RestController                                              // Denotes we are using REST
       public class AccountController {
@@ -150,8 +152,10 @@ The Spring Framework can be divided into 6 key areas -
       }
       ```
 
-      Spring Framework provides suport from programmnaticlaly invoking our rest service using RESTTemplates. RESTTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
+      
+      Spring Framework provides suport from programmatically invoking our rest service using `restTemplates`. restTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
 
+     
       ```
       restTemplate.getForObject("http://jeevan.com/account/567", Account.class);
       ```
@@ -163,7 +167,7 @@ The Spring Framework can be divided into 6 key areas -
 
 ## Advantages
    * Rock Solid and engineered.
-   * Stood the test of time. It has taken time to develop, and has a lot of contributions over the years.
+   * Stood the test of time. It has taken time to develop, and has had a lot of contributions over the years.
    * Spring Community is huge and very active.
    * One of the most used frameworks.
    * Built-in IDE support.
