@@ -61,9 +61,9 @@ Most often, they refer to the family of projects or the Spring ecosystem.
    `Package Application` -> `Choose Webserver` -> `Configure Webserver` -> `Deploy Application & Start Webserver`
 
    With Spring Boot application, the pipeline is - 
-   `Package Aplication` -> `Run`
+   `Package Application` -> `Run`
 
-   Spring Boot takes care of the rest by starting a web server under your application, configure the defaults, and runs your application.
+   Spring Boot takes care of the rest by starting a web server under your application, configure the defaults, and run your application.
 
 * **Opinionated**:  
 
@@ -80,11 +80,12 @@ The Spring Framework can be divided into 6 key areas -
 
    Spring Core serves as the foundational module upon which other key areas of Spring Framework are built. Spring core provides different features like - internationalization support, validation support, data binding support, type conversion support, etc. However, the main focus of Spring Core is **Dependency Injection**. 
 
-   **Dependency Injection** - A real world object, say computer, has various other dependencies, say hard disk, memory, etc. The computer object can `fulfill its own dependency` much like buying a laptop that does not allow any modifications to the specs. Otherwise, the computer object may `declare its dependencies` - much like buying an assembled computer which can be configured by choice. Depending on itself created tightly coupled systems whereas declaration makes the system loosely coupled and more flexible to change. 9The second choice is dependency injection). **Spring core is a dependency injection container** - developers develop each module independently, and when a project declares a module dependency, Spring core glues it all together.
+   **Dependency Injection** - A real world object, say computer, has various other dependencies, say hard disk, memory, etc. The computer object can `fulfill its own dependency` much like buying a laptop that does not allow any modifications to the specs. Otherwise, the computer object may `declare its dependencies` - much like buying an assembled computer which can be configured by choice. Depending on itself creates tightly coupled systems whereas declaration makes the system loosely coupled and more flexible to change (The second choice is dependency injection). **Spring core is a dependency injection container** - developers develop each module independently, and when a project declares a module dependency, Spring core glues it all together.
 
 * **Web** :
    Spring Web is a framework for handling web requests. It provides two functions to achieve that- 
    * **Spring Web MVC**
+
       Let us first understand what a Java Servlet is. A Java Servlet is an object that takes in the request and generates a response. The servlet APIs are the ones that take web requests when they hit the web server, and pass the request to the application for further processing. Once processed, the servlet API also forwards the response to the web server to be served to the client. However Servlets are considered to be low level APIs. Hence they are difficult to use and manage because developers on the business logic side have to interact directly with these low level APIs, and code using it can become easily disorganized.
       `Web Server` -> `Servlet API` -> `Business Logic`.
 
@@ -93,10 +94,11 @@ The Spring Framework can be divided into 6 key areas -
       A developer need not worry on the complex details of Servlet APIs, and can develop and structure business logic to route requests/responses through Spring Core MVC. 
 
    * **Spring Web Webflux**
+
       Spring Web Webflux is mostly suited for reactive applications - applications that are concerned with data streams and propagation of change. It handles requests asynchornously. Webflux applications rely on notifications systems(depend on others as well) to let know when a stage of the request processing is over, so that the next stage can start processing. This makes the previous stage available for other requests.
 
 * **Aspect Oriented Programming (AOP)** :
-   AOP is a way of writing more modular code by spearating cross-module concerns. Without AOP, applications would most likely have scattered and duplicated code across the application. For example, Security of an application, may be checking that the current user is valid admin, can happen across many different modules in the application. 
+   AOP is a way of writing more modular code by separating cross-module concerns. Without AOP, applications would most likely have scattered and duplicated code across the application. For example, Security of an application, may be checking that the current user is valid admin, can happen across many different modules in the application. 
 
       ```
       void someSensitiveOperation() {
@@ -124,7 +126,7 @@ The Spring Framework can be divided into 6 key areas -
       int numRecords = new JdbcTemplate(dataSource).queryForInt("Select count(*) from Foo");
       ```
     
-    Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional' to denote that the function only acts on the database transactionally - either all or nothing.
+    Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit to false, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional` to denote that the function only acts on the database transactionally - either all or nothing.
        
        ```
        @Transactional
@@ -133,14 +135,16 @@ The Spring Framework can be divided into 6 key areas -
        }
        ```
 
-    **Exception Translation** - Database vendors have different error codes for the same exception. With Spring Data Access, all these different error codes from different vendors are mapped onto the same Spring bucket corressponsing to that exception. 
+    **Exception Translation** - Database vendors have different error codes for the same exception. With Spring Data Access, all these different error codes from different vendors are mapped onto the same Spring bucket corressponding to that exception. 
 
     **Testing** applications is made easier with Spring Data Access. Spring Data lets you configure data sources easily, so that when testing one can point to a test database, but when the project goes live, actual production database is set up.
 
 * **Integration** :
-   Integration is about making different systems and applications work together. This 
-      * How do applications talk to each other ? RMI   , Messaging Systems or Web Services. Let us define a rest service below
+   Integration is about making different systems and applications work together. 
       
+      * How do applications talk to each other ? RMI , Messaging Systems or Web Services. 
+      
+      Let us define a rest service below
       ```
       @RestController                                              // Denotes we are using REST
       public class AccountController {
@@ -152,10 +156,9 @@ The Spring Framework can be divided into 6 key areas -
       ```
 
      Spring Framework provides suport from programmatically invoking our rest service using `restTemplates`. restTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
-     
-      ```
+     ```
       restTemplate.getForObject("http://jeevan.com/account/567", Account.class);
-      ```
+     ```
 
 * **Testing** :
    Both Unit Testing and Integration testing in Spring Framework is made easy by the fact that Spring Framework's core idea is based on dependency injection. Spring Testing provides certain mocking functionalities that lets you test your code by supplying your dependencies to your code functionality, or mocks that allows you to integrate modules with injection and test them with these new set of dependencies.
