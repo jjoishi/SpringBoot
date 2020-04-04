@@ -1,5 +1,9 @@
 This lesson gives a high level introduction to Spring Framework, some of the Spring projects. It answers questions on why and when to use Spring.
 
+# Table of Contents
+* [Spring Overview](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#what-is-spring)
+* [Getting to know Spring with Spring Boot](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/1.%20Spring%20-%20The%20Big%20Picture#getting-to-know-spring-with-spring-boot)
+
 # What is Spring?
 
 Spring could mean ...
@@ -28,3 +32,5 @@ Spring Cloud sat on top of Spring Boot, and made the development of distributed 
 * It is flexible, modular and backward compatible - one can choose any part of spring project to develop their applications, and it sticks together.
 * Large and active community.
 * Continually evolving. Although it is an open source, it is backed by Pivotal which takes care to maintain/add/develop features.
+
+# Getting to know Spring with Spring Boot
