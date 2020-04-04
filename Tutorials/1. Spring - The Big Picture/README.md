@@ -137,4 +137,42 @@ The Spring Framework can be divided into 6 key areas -
     **Testing** applications is made easier with Spring Data Access. Spring Data lets you configure data sources easily, so that when testing one can point to a test database, but when the project goes live, actual production database is set up.
 
 * **Integration** :
+   Integration is about making different systems and applications work together. This 
+      * How do applications talk to each other ? RMI   , Messaging Systems or Web Services. Let us define a rest service below
+
+      ```
+      @RestController                                              // Denotes we are using REST
+      public class AccountController {
+          @GetMapping("/account/{id}")                             // Denotes the operation and path
+          public Account findAccount(@PathVariable int id){        // Associates Path and Value
+              // do something
+          }
+      }
+      ```
+
+      Spring Framework provides suport from programmnaticlaly invoking our rest service using RESTTemplates. RESTTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
+
+      ```
+      restTemplate.getForObject("http://jeevan.com/account/567", Account.class);
+      ```
+
 * **Testing** :
+   Both Unit Testing and Integration testing in Spring Framework is made easy by the fact that Spring Framework's core idea is based on dependency injection. Spring Testing provides certain mocking functionalities that lets you test your code by supplying your dependencies to your code functionality, or mocks that allows you to integrate modules with injection and test them with these new set of dependencies.
+
+# Is Spring a Good Fit?
+
+## Advantages
+   * Rock Solid and engineered.
+   * Stood the test of time. It has taken time to develop, and has a lot of contributions over the years.
+   * Spring Community is huge and very active.
+   * One of the most used frameworks.
+   * Built-in IDE support.
+   * Develop scalable architecture.
+
+## Disadvantages
+   * Too much 'magical'/ 'configurable'. Things and dependencies just work, and people don't understand why things work.
+   * Since it is heavily used, the learning curve is steep.
+   * It increases the deliverable size.
+   * Hard to debug as Spring hides a lot of details.
+   * Add memory overhead to run applications.
+   * Complexity of Spring has increased.
