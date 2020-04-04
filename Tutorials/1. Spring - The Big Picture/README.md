@@ -126,26 +126,21 @@ The Spring Framework can be divided into 6 key areas -
       int numRecords = new JdbcTemplate(dataSource).queryForInt("Select count(*) from Foo");
       ```
     
-    Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit to false, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional` to denote that the function only acts on the database transactionally - either all or nothing.
-       
-       ```
+    Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit to false, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional` to denote that the function only acts on the database transactionally - either all or nothing.  
+    ```
        @Transactional
        void doDatabaseOperation() {
            // do something.
        }
-       ```
+    ```
 
     **Exception Translation** - Database vendors have different error codes for the same exception. With Spring Data Access, all these different error codes from different vendors are mapped onto the same Spring bucket corressponding to that exception. 
 
     **Testing** applications is made easier with Spring Data Access. Spring Data lets you configure data sources easily, so that when testing one can point to a test database, but when the project goes live, actual production database is set up.
 
 * **Integration** :
-   Integration is about making different systems and applications work together. 
-      
-      * How do applications talk to each other ? RMI , Messaging Systems or Web Services. 
-      
-      Let us define a rest service below
-      ```
+   Integration is about making different systems and applications work together. How do applications talk to each other ? RMI , Messaging Systems or Web Services. Let us define a rest service below
+    ```
       @RestController                                              // Denotes we are using REST
       public class AccountController {
           @GetMapping("/account/{id}")                             // Denotes the operation and path
@@ -153,7 +148,7 @@ The Spring Framework can be divided into 6 key areas -
               // do something
           }
       }
-      ```
+    ```
 
      Spring Framework provides suport from programmatically invoking our rest service using `restTemplates`. restTemplates automates and takes care of opening the connection, sending requests and handling responses. Query for account details can be as simple as 
      ```
