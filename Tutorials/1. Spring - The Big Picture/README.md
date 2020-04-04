@@ -62,7 +62,7 @@ Most often, they refer to the family of projects or the Spring ecosystem.
    `Package Application` -> `Choose Webserver` -> `Configure Webserver` -> `Deploy Application & Start Webserver`
 
    With Spring Boot application, the pipeline is - 
-   
+
    `Package Application` -> `Run`
 
    Spring Boot takes care of the rest by starting a web server under your application, configure the defaults, and run your application.
@@ -89,10 +89,13 @@ The Spring Framework can be divided into 6 key areas -
    * **Spring Web MVC**
 
       Let us first understand what a Java Servlet is. A Java Servlet is an object that takes in the request and generates a response. The servlet APIs are the ones that take web requests when they hit the web server, and pass the request to the application for further processing. Once processed, the servlet API also forwards the response to the web server to be served to the client. However Servlets are considered to be low level APIs. Hence they are difficult to use and manage because developers on the business logic side have to interact directly with these low level APIs, and code using it can become easily disorganized.
+      
       `Web Server` -> `Servlet API` -> `Business Logic`.
 
       In case of Spring MVC, an additional layer is introduced between the Servlet API and 'Business Logic'
-      `Web Server` -> `Servlet API` -> `Spring Core MVC` -> `Business Logic`
+      
+      `Web Server` -> `Servlet API` -> `Spring Core MVC` -> `Business Logic`.
+      
       A developer need not worry on the complex details of Servlet APIs, and can develop and structure business logic to route requests/responses through Spring Core MVC. 
 
    * **Spring Web Webflux**
