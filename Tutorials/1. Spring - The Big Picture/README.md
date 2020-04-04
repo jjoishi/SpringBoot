@@ -106,7 +106,7 @@ The Spring Framework can be divided into 6 key areas -
               // report the behavior
           }
       }
-   ```
+      ```
 
    Instead of spreading these checks across modules of an application, Spring AOP allows us to define the security measures at a single location, and have modules depend on it. Authorization for example, can be defined using `@PreAuthorize` tag with appropriate arguments.
 
@@ -118,11 +118,13 @@ The Spring Framework can be divided into 6 key areas -
       ```
 * **Data Access** :
    Spring Data Access makes it easier for applications to interact with data sources. It removes all boiler plate code needed to retrieve and process results from data source like 'PreparedStatement', or iterating over 'ResultSet', or having code in try-catch-finally blocks. Using Spring Data Access, this is as simple as belows - 
+      
       ```
       int numRecords = new JdbcTemplate(dataSource).queryForInt("Select count(*) from Foo");
       ```
     
     Spring Data Access also makes **database transaction** easier. In normal Java code, this would include setting autocommit, or setting the rollback in case of failures. In Spring, one can use the annotation `@Transactional' to denote that the function only acts on the database transactionally - either all or nothing.
+       
        ```
        @Transactional
        void doDatabaseOperation() {
