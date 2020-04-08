@@ -1,8 +1,8 @@
 In this lesson, we go into fundamentals of Spring Developmemt by going through various configurations that are available in Spring. Some of the topics include Java Configuration, Autowiring, and Advanced Bean Configuration.
 
 # Table of Contents
-* [What is Spring](link)
-* [Demo - Java App in Plain Old Java Object (POJO) style](link)
+* [What is Spring](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#what-is-spring)
+* [Demo - Java App in Plain Old Java Object (POJO) style](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-app-in-plain-old-java-objectpojo-style)
 
 
 # What is Spring?
@@ -24,7 +24,8 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
    1. Start a maven project, and provide an appropriate groupID, artifactID and a name to your project.
 
    **NOTE: By default, intelliJ uses Java version 1.5 as the default compiler. However Maven projects are not designed to run on or below version 5. To force IntelliJ to use maven compiler plugin and not the default one, add a build plugin to you POM file**
-   ![pom](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG)
+
+   ![pom](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG = 150x150)
 
    2. Create a model for the Speaker. At this point, we are only interested in First and Last name of the speaker.
    
