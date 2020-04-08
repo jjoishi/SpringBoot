@@ -29,27 +29,27 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    2. Create a model for the Speaker. At this point, we are only interested in First and Last name of the speaker.
    
-   ![speaker](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/speaker.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/speaker.PNG" width="800" height="600">
 
    3. Details of each speaker has to be maintained in the database. However, for simplicity of the project, we do not maintain information in the database. Instead, we define an interface repository that kind of mimics the interfaces to an actual database.
 
-   ![SpeakerRepository](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerRepository.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerRepository.PNG" width="800" height="600">
 
    4. We create an implementation of SpeakerRepository that mimics the actual database, and for now, has some speakers defined.
 
-   ![HibernateSpeakerRepositoryImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/HibernateSpeakerRepositoryImpl.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/HibernateSpeakerRepositoryImpl.PNG" width="800" height="600">
 
    5. Alike Repository, there should be a service that cordinates activities of the speaker. The SpeakerService interfaces mimics the cordinting interface.
 
-   ![SpeakerService](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerService.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerService.PNG" width="800" height="600">
 
    And SpeakerServiceImpl is an implementation of the Speaker cordinating service.
 
-   ![SpeakerServiceImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerServiceImpl.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerServiceImpl.PNG" width="800" height="600">
 
    6. The Main driver class. We create an Application class that acts as the main driver class. It instantaites the service. This is turn initializes the repository and all speakers.
    
-   ![Application](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/Application.PNG)
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/Application.PNG" width="800" height="600">
 
    As you can see from the example above, these set of classes just use plain java objects. Objects of the class are hardcoded initialized. 
 
