@@ -17,10 +17,46 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
    The biggest problme that Spring (in comparison to J2EE) solves is **Testability**, **Maintainabaility**, **Scalability**. It helps reduce the **Code Complexity** and allows us to focus on **Business Logic**.
 
 # Demo - Java App in Plain Old Java Object(POJO) Style
-![Application](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/Application.PNG)
-![HibernateSpeakerRepositoryImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/HibernateSpeakerRepositoryImpl.PNG)
-![pom](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG)
-![speaker](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/speaker.PNG)
-![SpeakerRepository](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerRepository.PNG)
-![SpeakerService](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerService.PNG)
-![SpeakerServiceImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerServiceImpl.PNG)
+   The overall project is to develop an app that has information on all the speakers coming to a conference.
+
+   In this case, we will develop the application in plain java objects without any configuration.
+   
+   1. Start a maven project, and provide an appropriate groupID, artifactID and a name to your project.
+
+   **NOTE: By default, intelliJ uses Java version 1.5 as the default compiler. However Maven projects are not designed to run on or below version 5. To force IntelliJ to use maven compiler plugin and not the default one, add a build plugin to you POM file**
+   ![pom](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG)
+
+   2. Create a model for the Speaker. At this point, we are only interested in First and Last name of the speaker.
+   
+   ![speaker](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/speaker.PNG)
+
+   3. Details of each speaker has to be maintained in the database. However, for simplicity of the project, we do not maintain information in the database. Instead, we define an interface repository that kind of mimics the interfaces to an actual database.
+
+   ![SpeakerRepository](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerRepository.PNG)
+
+   4. We create an implementation of SpeakerRepository that mimics the actual database, and for now, has some speakers defined.
+
+   ![HibernateSpeakerRepositoryImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/HibernateSpeakerRepositoryImpl.PNG)
+
+   5. Alike Repository, there should be a service that cordinates activities of the speaker. The SpeakerService interfaces mimics the cordinting interface.
+
+   ![SpeakerService](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerService.PNG)
+
+   And SpeakerServiceImpl is an implementation of the Speaker cordinating service.
+
+   ![SpeakerServiceImpl](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/SpeakerServiceImpl.PNG)
+
+   6. The Main driver class. We create an Application class that acts as the main driver class. It instantaites the service. This is turn initializes the repository and all speakers.
+   
+   ![Application](https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/Application.PNG)
+
+   As you can see from the example above, these set of classes just use plain java objects. Objects of the class are hardcoded initialized. 
+
+   * **Issue**
+      * Hardcoded references. 
+      * Violation of OCP - If a change in class name were to happen, all hardcoded initializations has to be changed.
+
+
+
+
+
