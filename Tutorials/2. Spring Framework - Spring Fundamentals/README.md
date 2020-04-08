@@ -25,7 +25,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    **NOTE: By default, intelliJ uses Java version 1.5 as the default compiler. However Maven projects are not designed to run on or below version 5. To force IntelliJ to use maven compiler plugin and not the default one, add a build plugin to you POM file**
 
-   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG" width="100" height="100">
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/1.%20java_pojo/pom.PNG" width="800" height="600">
 
    2. Create a model for the Speaker. At this point, we are only interested in First and Last name of the speaker.
    
