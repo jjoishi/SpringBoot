@@ -57,7 +57,36 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
       * Hardcoded references. 
       * Violation of OCP - If a change in class name were to happen, all hardcoded initializations has to be changed.
 
+# Demo - Conference App with Spring configurations
+   Create a copy of the conference project from [Demo1](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-app-in-plain-old-java-objectpojo-style), and and name it '**Conference-JavaConfigurations**'. For the project to work properly, its properties has to be changed to suit the new project name. Change the following - 
 
+      * Under the project, rename the file '**Conference.iml**' to '**Conference-JavaConfigurations.iml**'
+      * In pom.xml, replace the ArtifactID of the project to a new name. This will avoid any clash of namespaces/packages if the project is published.
+      * For the first launch, running the main method will invoke a window. Set the classpath of the module to the new project name, and select the JRE that you have installed on your system.
 
+   To make the project Spring based, the first step is to make spring dependencies available to the project. This can be done by adding the spring conext as dependecy to pom.xml
+   ```
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-context</artifactId>
+         <version>5.2.5.RELEASE</version>
+      </dependency>
+   ```
 
+   Spring Framework core idea is based on 'Dependency Injection'. To achieve this - 
 
+      1. Class SpeakerServiceImpl had hardcoded initialization of SpeakerRepository. To achieve Dependency injection for this class, we would define an object of SpeakerRepository but would only initialize it via '**Constructor Injection**' or '**Setter Injection**'.
+
+      <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/SpeakerServiceImpl.PNG" width="800" height="600">
+
+      2. The main method in Application class also had direct initialization of 'SpeakerService'. To mitigate such hardcoded initializations, Java Configurations/Spring Configurations/ XML Configurations are used where such objects are created and registered as '**Beans**'. To define the configuration for this project, we introduce a new class called '**AppConfig**'.
+
+         It is a public class marked with `@Configuration` at the class level to indicate that this class is responsible for bootstrapping the application. Additionally, we define two Beans using `@Bean` with optional argument `name' that gets registered with the Spring framework as two objects which would be used in the project.
+
+         Bean `speakerRepository' initializes a new repository, and the Bean `speakerService' takes in the speakerRepository object to initialize the service(conference app).
+
+         <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AppConfig.PNG" width="800" height="600">
+
+         These beans are registered with the spring framework through the `AppConfig` class. So naturally, our main `Application' class should initialized the configuration class, and access beans(and its underlying functions) through the Config class.
+
+         <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Application.PNG" width="800" height="600">
