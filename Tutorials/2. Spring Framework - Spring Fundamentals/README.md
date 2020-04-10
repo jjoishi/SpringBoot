@@ -4,6 +4,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 * [What is Spring](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#what-is-spring)
 * [Demo - Java App in Plain Old Java Object (POJO) style](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-app-in-plain-old-java-objectpojo-style)
 * [Demo - Java Spring Configurations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---conference-app-with-spring-configurations)
+* [Bean Scopes, Auto-wiring, Stereotype Annotations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#bean-scopes-auto-wiring-stereotype-annotations)
 
 
 # What is Spring?
