@@ -92,13 +92,13 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Application.PNG" width="800" height="600">
 
-# Bean Scopes and Auto-wiring
+# Bean Scopes, Auto-wiring, Stereotype Annotations
    Scopes are not patterns, howeever Spring uses them internally. There are five types of Scopes
 
    * Valid in Web configurations only
-      * REQUEST
-      * SESSION
-      * GLOBAL SESSION
+      * **REQUEST**
+      * **SESSION**
+      * **GLOBAL SESSION**
 
    * Valid in any configuration
       * **SINGLETON**
@@ -120,7 +120,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
                return aService;
             }
          ```
-         In your `Application' class, if your print the the hashcode of two different SpeakerService instances, observe that they are the same.
+         In your `Application` class, if your print the the hashcode of two different SpeakerService instances, observe that they are the same.
          ```
             SpeakerService aSpeakerService = appContext.getBean("speakerService", SpeakerService.class);
             SpeakerService aSpeakerService2 = appContext.getBean("speakerService", SpeakerService.class);
@@ -132,7 +132,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
         <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Singleton.PNG">
 
       * **PROTOTYPE**
-         It creates a separate bean instance per request. Instances are guranteed to be unique.
+         It creates a separate bean instance per request. Instances are guaranteed to be unique.
          ```
             @Bean(name = "speakerService")
             @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -152,21 +152,21 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
          
          <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Prototype.PNG">
 
-   **Auto-wiring** : Spring can automatically resolve the dependencies(beans) for the current bean by looking at its collection of bean. The collection of bean can that should be registtered is defined by scanning beans in a given component. `@ComponentScan` is used to define this. By default, beans are set to `No autowiring`. However, they can be allowed to search and link beans `ByName', 'ByInstanceType'. Beans can be autowired using the `@Autowired` annotation.
+   **Auto-wiring** : Spring can automatically resolve the dependencies(beans) for the current bean by looking at its collection of bean. The collection of bean that should be registered is defined by scanning beans in a given component. `@ComponentScan` is used to define this. By default, beans are set to `No autowiring`. However, they can be allowed to search and link beans `ByName`, `ByInstanceType`. Beans can be autowired using the `@Autowired` annotation.
 
    In the following example, I set the function `setRepo` to `AutoWired`, and a log statement has been added to each of the constructors, and setter.
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AutowiredSpeakerServiceImpl.PNG">
 
-   AppConfig initialized the Bean using the default constructor, but without calling the setter explicityly.
+   AppConfig initialized the Bean using the default constructor, but without calling the setter explicitly.
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AutoWireAppConfig.PNG">
 
-   Notice the output. Despite the setter not being hooked explicitly in AppConfig, it is called during speakerService bean creation. This was possible due to Auto-wiring.
+   Notice the output. Despite the setter not being hooked explicitly in AppConfig, it is called during speakerService bean creation. This is possible due to Auto-wiring.
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/OutputAutowire.PNG">
 
-   ** Stereotype Annotations**: So far, we have only autowired one constructor injection in bean creation. Typically, a Spring project would have lot more beans, and having to fill up `AppConfig` class with the initialization of all objects to be autowired is a painful task. One can set auto-wiring at class level. To begin with, you will need to include the `@ComponentScan` annotation in AppConfig.
+   **Stereotype Annotations**: So far, we have only autowired one constructor injection in bean creation. Typically, a Spring project would have lot more beans, and having to fill up `AppConfig` class with the initialization of all objects to be autowired is a painful task. One can set auto-wiring at class level. To begin with, you will need to include the `@ComponentScan` annotation in AppConfig.
    ```
    @ComponentScan("com.jeevan"})
    ```
