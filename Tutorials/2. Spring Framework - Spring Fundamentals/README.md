@@ -9,7 +9,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 # What is Spring?
    Spring started out as a means of reducing complexity of J2EE enterprise development. It's main focus was **Inversion of Control Container** or **Dependency Injection**. Its started out as a means to help out with Enterprise Java Beans(EJB) development, but at its current state, it does not depend on beans.
 
-   **NOTE: Dependecny Injection is a way of removing hard-wired code in your system, and forcing other to fulfill the dependencies as and when the object is required.**
+   **NOTE: Dependency Injection is a way of removing hard-wired code in your system, and forcing other to fulfill the dependencies as and when the object is required.**
 
    * Spring can be used with or without EJB, although lately, it is used independent of EJBs.
    * Spring is POJO (Plain Old Java Object) based. It means spring projects can be written without Spring at all.
@@ -61,9 +61,9 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 # Demo - Conference App with Spring configurations
    Create a copy of the conference project from [Demo1](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-app-in-plain-old-java-objectpojo-style), and and name it '**Conference-JavaConfigurations**'. For the project to work properly, its properties has to be changed to suit the new project name. Change the following - 
 
-      * Under the project, rename the file '**Conference.iml**' to '**Conference-JavaConfigurations.iml**'
-      * In pom.xml, replace the ArtifactID of the project to a new name. This will avoid any clash of namespaces/packages if the project is published.
-      * For the first launch, running the main method will invoke a window. Set the classpath of the module to the new project name, and select the JRE that you have installed on your system.
+   * Under the project, rename the file '**Conference.iml**' to '**Conference-JavaConfigurations.iml**'
+   * In pom.xml, replace the ArtifactID of the project to a new name. This will avoid any clash of namespaces/packages if the project is published.
+   * For the first launch, running the main method will invoke a window. Set the classpath of the module to the new project name, and select the JRE that you have installed on your system.
 
    To make the project Spring based, the first step is to make spring dependencies available to the project. This can be done by adding the spring conext as dependecy to pom.xml
    ```
