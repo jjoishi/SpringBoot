@@ -84,10 +84,10 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    It is a public class marked with `@Configuration` at the class level to indicate that this class is responsible for bootstrapping the application. Additionally, we define two Beans using `@Bean` with optional argument `name' that gets registered with the Spring framework as two objects which would be used in the project.
 
-   Bean `speakerRepository' initializes a new repository, and the Bean `speakerService' takes in the speakerRepository object to initialize the service(conference app).
+   Bean `speakerRepository` initializes a new repository, and the Bean `speakerService` takes in the speakerRepository object to initialize the service(conference app).
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AppConfig.PNG" width="800" height="600">
 
-   These beans are registered with the spring framework through the `AppConfig` class. So naturally, our main `Application' class should initialized the configuration class, and access beans(and its underlying functions) through the Config class.
+   These beans are registered with the spring framework through the `AppConfig` class. So naturally, our main `Application` class should initialized the configuration class, and access beans(and its underlying functions) through the Config class.
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Application.PNG" width="800" height="600">
