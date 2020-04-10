@@ -91,3 +91,137 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
    These beans are registered with the spring framework through the `AppConfig` class. So naturally, our main `Application` class should initialized the configuration class, and access beans(and its underlying functions) through the Config class.
 
    <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Application.PNG" width="800" height="600">
+
+# Bean Scopes and Auto-wiring
+   Scopes are not patterns, howeever Spring uses them internally. There are five types of Scopes
+
+   * Valid in Web configurations only
+      * REQUEST
+      * SESSION
+      * GLOBAL SESSION
+
+   * Valid in any configuration
+      * **SINGLETON**
+         
+         It is the default bean scope in Spring. As the name suggests, objects are initialized only once per Spring container. This may be same as one object per JVM, but not necessarily. Technically, you can have multiple Spring Containers in a single JVM instance. Since containers are isolated, the objects has to be singleton only on that container.
+
+         A bean's scope can be defined as singleton by using the `@Scope` annotation with the appropriate `BeanDefinition` value.
+         ```
+            @Bean(name = "speakerService")
+            @Scope(value = BeanDefinition.SCOPE_SINGLETON)
+            public SpeakerService getSpeakerService(){
+        
+               // constructor injection
+               SpeakerServiceImpl aService = new SpeakerServiceImpl(getSpeakerRepository());
+        
+               // setter injection
+               // SpeakerServiceImpl aService = new SpeakerServiceImpl();
+               // aService.setRepo(getSpeakerRepository());
+               return aService;
+            }
+         ```
+         In your `Application' class, if your print the the hashcode of two different SpeakerService instances, observe that they are the same.
+         ```
+            SpeakerService aSpeakerService = appContext.getBean("speakerService", SpeakerService.class);
+            SpeakerService aSpeakerService2 = appContext.getBean("speakerService", SpeakerService.class);
+
+            System.out.println(aSpeakerService);
+            System.out.println(aSpeakerService2);
+        ```
+
+        <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Singleton.PNG">
+
+      * **PROTOTYPE**
+         It creates a separate bean instance per request. Instances are guranteed to be unique.
+         ```
+            @Bean(name = "speakerService")
+            @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
+            public SpeakerService getSpeakerService(){
+        
+               // constructor injection
+               SpeakerServiceImpl aService = new SpeakerServiceImpl(getSpeakerRepository());
+        
+               // setter injection
+               // SpeakerServiceImpl aService = new SpeakerServiceImpl();
+               // aService.setRepo(getSpeakerRepository());
+               return aService;
+            }
+         ```
+
+         The result as seen below, indicates that the two SpeakerService instances are different.
+         
+         <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/Prototype.PNG">
+
+   **Auto-wiring** : Spring can automatically resolve the dependencies(beans) for the current bean by looking at its collection of bean. The collection of bean can that should be registtered is defined by scanning beans in a given component. `@ComponentScan` is used to define this. By default, beans are set to `No autowiring`. However, they can be allowed to search and link beans `ByName', 'ByInstanceType'. Beans can be autowired using the `@Autowired` annotation.
+
+   In the following example, I set the function `setRepo` to `AutoWired`, and a log statement has been added to each of the constructors, and setter.
+
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AutowiredSpeakerServiceImpl.PNG">
+
+   AppConfig initialized the Bean using the default constructor, but without calling the setter explicityly.
+
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AutoWireAppConfig.PNG">
+
+   Notice the output. Despite the setter not being hooked explicitly in AppConfig, it is called during speakerService bean creation. This was possible due to Auto-wiring.
+
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/OutputAutowire.PNG">
+
+   ** Stereotype Annotations**: So far, we have only autowired one constructor injection in bean creation. Typically, a Spring project would have lot more beans, and having to fill up `AppConfig` class with the initialization of all objects to be autowired is a painful task. One can set auto-wiring at class level. To begin with, you will need to include the `@ComponentScan` annotation in AppConfig.
+   ```
+   @ComponentScan("com.jeevan"})
+   ```
+
+   Instead of having bean identifers in AppConfig, those can be defined at appropriate classes using `@Repository` or `@Service` stereotypes annotations.
+   ```
+   @Service("speakerService")
+   public class SpeakerServiceImpl implements SpeakerService {
+   private SpeakerRepository repo;
+   ....
+   ```
+   ```
+   @Repository("speakerRepository")
+   public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
+   @Override
+   public List<Speaker> findAll(){
+   ....
+   ```
+
+   Since, definition of the beans has moved from AppConfig to respective classes, AppConfig should no longer be defining those beans again. As such they are all commented out.
+   ```
+   @Configuration
+   @ComponentScan({"com.jeevan"})
+   public class AppConfig {
+      // Bean annotations are used to get instances of spring beans
+      // Bean is used at method level
+
+      /*
+      * Commenting because of autowiring using stereotype annotations.
+      *
+      @Bean(name = "speakerService")
+      @Scope(value = BeanDefinition.SCOPE_SINGLETON)
+      public SpeakerService getSpeakerService(){
+         // constructor injection
+         // SpeakerServiceImpl aService = new SpeakerServiceImpl(getSpeakerRepository());
+        
+         // setter injection
+         // SpeakerServiceImpl aService = new SpeakerServiceImpl();
+         // aService.setRepo(getSpeakerRepository());
+
+
+         // Object for autowiring. aService initialized using default constructor
+         // but no setter has been called.
+         SpeakerServiceImpl aService = new SpeakerServiceImpl();
+         return aService;
+      }
+
+    @Bean(name = "speakerRepository")
+    public SpeakerRepository getSpeakerRepository() {
+        return new HibernateSpeakerRepositoryImpl();
+    }
+    */
+   }
+   ```
+
+   Despite, not linking the beans explicitly, Spring Framework reads the dependencies of beans in `com.jeevan` to understand which beans should be autowired with the other to work properly. The following output shows that despite no explicit dependency injection, default constructor followed by setter injection is used for instantiation (because @Autowired tag was set to the setter in the class SpeakerServiceImpl).
+
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/OutputStereotype.PNG">
