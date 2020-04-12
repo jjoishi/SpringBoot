@@ -5,8 +5,8 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 * [Demo - Java App in Plain Old Java Object (POJO) style](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-app-in-plain-old-java-objectpojo-style)
 * [Demo - Java Spring Configurations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---conference-app-with-spring-configurations)
 * [Bean Scopes, Auto-wiring, Stereotype Annotations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#bean-scopes-auto-wiring-stereotype-annotations)
-* [Demo - Java XML Configurations](link)
-* [# Advance Bean Configurations](link)
+* [Demo - Java XML Configurations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#demo---java-xml-configurations)
+* [Advance Bean Configurations](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals#advance-bean-configurations)
 
 
 # What is Spring?
@@ -393,7 +393,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
    ```
    And a screenshot of the output shows that the post construct method is called.
    
-   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AdvanceBeanPostConstruct.PNG>
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/AdvanceBeanPostConstruct.PNG">
 
    * **Factory Bean**: It builds on the initMethod described above(postConstruct). The underlying framework is same as Factory Method pattern, and is a great tool to integarte legacy code into your applications.
 
@@ -472,7 +472,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    A run of the application demonstrates the date when each of these speakers registered.
    
-   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/FactoryBeanOutput.PNG>
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/FactoryBeanOutput.PNG">
 
    * **Spring Expression Language(SpEL)** : SpEL are more like mathematical statements that allowes for modification of object graph or change values at runtime, or change configuration settings.
 
@@ -520,7 +520,7 @@ In this lesson, we go into fundamentals of Spring Developmemt by going through v
 
    On executing the program, one can see random values being assigned to the speakers (It is same for both the speakers here because the value is assigned at the object initialization. Since both the speakers are created on the same object, the value remains the same.).
 
-   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/OutputSpEL.PNG>
+   <img src="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/2.%20Spring%20Framework%20-%20Spring%20Fundamentals/images/2.%20java_spring_configuration/OutputSpEL.PNG">
 
    * **Bean Profiles**: Bean Profiles is a way of marking territories in spring project. It is like configuring a project to run only in certain environments. Profiles can be marked by using `@Profile` annotation with a string value that defines the configuration. The string value is not a keyword, but any user defined keyword.
 
