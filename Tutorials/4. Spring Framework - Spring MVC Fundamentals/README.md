@@ -15,6 +15,7 @@ This course covers the fundamentals of Spring MVC. Topics include containers and
    <img src ="https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/4.%20Spring%20Framework%20-%20Spring%20MVC%20Fundamentals/images/1.%20spring_mvc/RequestResponseCycle.PNG"/>
 
    The sequence of data flow is - 
+   
    `Incoming Request` --> `Delegate Request` --> `Handle Request` --> `Create Model` --> `Delegate Rendering` --> `Render Response` --> `Return Control` --> `Return Response`
 
 
