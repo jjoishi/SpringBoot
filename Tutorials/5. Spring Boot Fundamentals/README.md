@@ -1,11 +1,11 @@
 The course introduces the fundamentals of Spring Boot. Some of the cases that will be addressed in this course are condiguring a spring application, developing REST api, building a GraphQL server, making your application production ready, and writing unit & integration tests in Spring Boot. At the end of the project, we will develop a TrackZilla - a bug tracking application using Spring Boot.
 
 # Table of Contents
-* [Introduction to Spring Boot](link)
+* [Introduction to Spring Boot](https://github.com/jjoishi/SpringBoot/tree/master/Tutorials/5.%20Spring%20Boot%20Fundamentals#introduction-to-spring-boot)
 
 # Introduction to Spring Boot
    Spring Boot sits on top of various other spring projects like Spring Data, Spring MVC, Spring security, etc. and is used to **boot** up your entire Spring application with very little configurations. As seen in previous courses, there were XML confguration, and then Annotation based configurations options. All of these didn't entirely solve the problem. Another issue - web applications usually have the same structure with configurations, controllers, service layers, data layer , databases, etc. These parts more or less are boiler plate to an application. The below image (copyrights to Spring Boot Fundamentals course by Kesha Williams) shows the typical layout of a web project -
-   <img src = ""/>
+   <img src = "https://github.com/jjoishi/SpringBoot/blob/master/Tutorials/5.%20Spring%20Boot%20Fundamentals/images/1.%20spring_boot_intro/TypicalWebApplication.PNG"/>
 
    Spring Boot solves the above problem with configurations and dependency management and deployment. It facilitates single step deployment because it auto configures all the dependency and the applications just runs. Spring Boot comes with servlet containers/servers where your applications can be deployed.
 
