@@ -50,5 +50,4 @@ This course covers the fundamentals of Spring MVC. Topics include containers and
 
    More information on integrating Tomcat server with IntelliJ can be found [here](https://mkyong.com/intellij/intellij-idea-run-debug-web-application-on-tomcat/)
 
-
-
+***NOTE: There were more parts to this tutorial. But intelliJ Community edition does not support Web deployments. Hence there couldn't be more notes on the project).**

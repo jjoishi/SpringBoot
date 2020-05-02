@@ -18,3 +18,5 @@ The course introduces the fundamentals of Spring Boot. Some of the cases that wi
    * **Command Line Interface**:
    
    * **Actuator**: Actuators are used to monitor the internal runtime operational information  and what's happening inside it. It can be managed via HTTP endpoints of JMX, and can be used to study health status, metrics, loggers, audit events, HTTP Trace, etc.
+
+**NOTE: The rest of the projects are project based. Linked to the project will be updated once completed.**
