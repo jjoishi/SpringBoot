@@ -18,5 +18,37 @@ This course covers the fundamentals of Spring MVC. Topics include containers and
    
    `Incoming Request` --> `Delegate Request` --> `Handle Request` --> `Create Model` --> `Delegate Rendering` --> `Render Response` --> `Return Control` --> `Return Response`
 
+# Creating Conference Sping MVC Application
+   * Create a Spring Boot (yes, Spring Boot) project from www.start.spring.io using Java and Maven, and adding Spring Web as a dependency. 
+   * Download the zip file, and open it using intelliJ
+   * Under 'resources/static' folder, add a HTML file that prints a dummy message.
+   * Run the application. and navigate to localhost:8080 to check that the application is working as intended.
+   
+   By default, the above applications is packaged into a JAR file. However, if you want to package the application as a WAR file and deploy it to external servers like Tomcat, execute the additional steps mentioned below. Note that adding Application servers is not possible in IntelliJ Community Edition - 
+
+   * Download the core zip package of Apache Tomcat server.
+   * Under `Settings` -> `Build, Execution and Deployment` -> `Application Servers`, add TomcatServer by supplying the required path.
+   * In the project's pom.xml, add the following in project properties - 
+   ```
+      <packaging> war </packaging>
+   ```
+   
+   and athe following dependency - 
+
+   ```
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-tomcat</artifactId>
+         <version>2.2.6.RELEASE</version>
+      </dependency>
+   ```
+   * create a folder under `src/main`, say webapps, and copy the index.html file from `resources/static`. It is so because, resources folder are not included s part of the WAR packaging.
+   * Edit the `Run Configuration`, to add a new Tomcat Configuration. Make sure the JDK version also matches. 
+   * Choose war type as `conference:war`, and default as `/conference`
+   * Run the application, and tomcat should automatically launch a browser with the default `/conference` page.
+
+   More information on integrating Tomcat server with IntelliJ can be found [here](https://mkyong.com/intellij/intellij-idea-run-debug-web-application-on-tomcat/)
+
 
 
